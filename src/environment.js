@@ -15,12 +15,11 @@ if (process.env.CIRCLECI) {
   if (process.env.BUILD_CAUSE_GHPRBCAUSE) {
     environment = {
       repo: process.env.ghprbGhRepository,
-      token: process.env.ghprbCredentialsId,
+      token: process.env.GITHUB_TOKEN,
       event_type: 'pull_request',
       sha: process.env.ghprbActualCommit,
       branch: process.env.ghprbSourceBranch
     };
-
   }
 } else {
   // Default to travis
