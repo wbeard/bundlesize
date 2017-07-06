@@ -20,6 +20,8 @@ if (process.env.CIRCLECI) {
       sha: process.env.ghprbActualCommit,
       branch: process.env.ghprbSourceBranch
     };
+
+    console.log('ENVIRONMENT >>>>>>>>>>>>>>>>>', environment);
   }
 } else {
   // Default to travis
