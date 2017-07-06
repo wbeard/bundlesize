@@ -21,7 +21,6 @@ if (process.env.CIRCLECI) {
       branch: process.env.ghprbSourceBranch
     };
 
-    console.log('ENVIRONMENT >>>>>>>>>>>>>>>>>', environment);
   }
 } else {
   // Default to travis
@@ -36,5 +35,7 @@ if (process.env.CIRCLECI) {
       : process.env.TRAVIS_PULL_REQUEST_BRANCH
   };
 }
+
+console.log('ENVIRONMENT >>>>>>>>>>>>>>>>>', environment);
 
 module.exports = environment;
