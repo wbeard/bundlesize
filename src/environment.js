@@ -11,6 +11,16 @@ if (process.env.CIRCLECI) {
     sha: process.env.CIRCLE_SHA1,
     branch: process.env.CIRCLE_BRANCH
   };
+} else if (process.env.JENKINS_HOME) {
+  if (process.env.BUILD_CAUSE_GHPRBCAUSE)
+    environment = {
+      repo: process.env.ghprbGhRepository,
+      token: process.env.ghprbCredentialsId,
+      event_type: 'pull_request',
+      sha: process.env.ghprbActualCommit,
+      branch: process.env.ghprbSourceBranch
+    };
+  }
 } else {
   // Default to travis
   // See https://docs.travis-ci.com/user/environment-variables/ for reference.
