@@ -12,7 +12,7 @@ if (process.env.CIRCLECI) {
     branch: process.env.CIRCLE_BRANCH
   };
 } else if (process.env.JENKINS_HOME) {
-  if (process.env.BUILD_CAUSE_GHPRBCAUSE)
+  if (process.env.BUILD_CAUSE_GHPRBCAUSE) {
     environment = {
       repo: process.env.ghprbGhRepository,
       token: process.env.ghprbCredentialsId,
